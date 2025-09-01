@@ -52,6 +52,7 @@
 
         <div id="admin-view" class="hidden flex-col flex-grow min-h-0 md:max-w-2xl md:mx-auto w-full p-4 overflow-y-auto custom-scrollbar">
             <div class="bg-gray-800 rounded-xl p-4">
+
                 <div class="mb-4 pb-4 border-b border-gray-700">
                     <h2 class="text-xl font-bold mb-3 text-gray-200">Disziplin-Verwaltung</h2>
                     <select id="admin-discipline-select" class="bg-gray-700 border border-gray-600 text-white rounded-lg p-2 w-full mb-3"></select>
@@ -61,22 +62,22 @@
                         <button id="admin-delete-btn" class="bg-red-700 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg shadow-md">Löschen</button>
                     </div>
                 </div>
+                
+                <div class="mb-4 pb-4 border-b border-gray-700">
+                    <h2 class="text-xl font-bold mb-3 text-gray-200">Audio-Einstellungen</h2>
+                    <div class="space-y-3">
+                        <div>
+                            <label for="volume-slider" class="block mb-2 text-sm font-medium text-gray-300">Signalton-Lautstärke: <span id="volume-display">100</span>%</label>
+                            <input id="volume-slider" type="range" min="0" max="100" value="100" class="w-full h-2 bg-gray-600 rounded-lg appearance-none cursor-pointer">
+                        </div>
+                        <button id="test-tone-btn" class="w-full bg-gray-600 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded-lg shadow-md">Test-Ton</button>
+                    </div>
+                </div>
 
                 <div class="mb-4 pb-4 border-b border-gray-700">
                     <h2 class="text-xl font-bold mb-3 text-gray-200">Standard-Sätze laden</h2>
                     <button id="load-from-server-btn" class="w-full bg-green-600 hover:bg-green-500 text-white font-bold py-2 px-4 rounded-lg shadow-md">BDMP-Standard & EPP laden</button>
                 </div>
-
-                <div class="mb-4 pb-4 border-b border-gray-700">
-    <h2 class="text-xl font-bold mb-3 text-gray-200">Audio-Einstellungen</h2>
-    <div class="space-y-3">
-        <div>
-            <label for="volume-slider" class="block mb-2 text-sm font-medium text-gray-300">Signalton-Lautstärke: <span id="volume-display">100</span>%</label>
-            <input id="volume-slider" type="range" min="0" max="100" value="100" class="w-full h-2 bg-gray-600 rounded-lg appearance-none cursor-pointer">
-        </div>
-        <button id="test-tone-btn" class="w-full bg-gray-600 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded-lg shadow-md">Test-Ton</button>
-    </div>
-</div>
 
                 <div class="mb-4 pb-4 border-b border-gray-700">
                     <h2 class="text-xl font-bold mb-3 text-gray-200">Sammlung Teilen / Sichern</h2>
@@ -124,46 +125,39 @@
         </div>
         
         <div id="help-view" class="hidden flex-col h-full md:max-w-2xl md:mx-auto w-full p-4 overflow-y-auto custom-scrollbar">
-    <div class="bg-gray-800 rounded-xl p-6 text-left text-gray-300 space-y-4">
-        <h1 class="text-amber-400 font-bold text-2xl mb-2">Anleitung für den eXen-BDMP-Timer</h1>
-        
-        <p>Dieser Timer wurde entwickelt, um dir das Training und die Durchführung von dynamischen Schießdisziplinen zu vereinfachen.</p>
-        
-        <div>
-            <h3 class="text-amber-400 font-bold text-lg mt-4 mb-2">Erste Schritte</h3>
-            <ol class="list-decimal pl-5 space-y-2">
-                <li><strong>Disziplinen laden:</strong> Gehe zur "Admin"-Ansicht und klicke auf "BDMP-Standard & EPP laden". Eine Auswahl an gängigen Disziplinen wird importiert.</li>
-                <li><strong>Ablauf auswählen & laden:</strong> Wähle in der Liste die gewünschte Disziplin aus und klicke auf "Laden". Die App wechselt automatisch zur Timer-Ansicht.</li>
-                <li><strong>Timer starten:</strong> Klicke auf "Start", um den Ablauf zu beginnen.</li>
-            </ol>
+            <div class="bg-gray-800 rounded-xl p-6 text-left text-gray-300 space-y-4">
+                <h1 class="text-amber-400 font-bold text-2xl mb-2">Anleitung für den eXen-BDMP-Timer</h1>
+                <p>Dieser Timer wurde entwickelt, um dir das Training und die Durchführung von dynamischen Schießdisziplinen zu vereinfachen.</p>
+                <div>
+                    <h3 class="text-amber-400 font-bold text-lg mt-4 mb-2">Erste Schritte</h3>
+                    <ol class="list-decimal pl-5 space-y-2">
+                        <li><strong>Disziplinen laden:</strong> Gehe zur "Admin"-Ansicht und klicke auf "BDMP-Standard & EPP laden". Eine Auswahl an gängigen Disziplinen wird importiert.</li>
+                        <li><strong>Ablauf auswählen & laden:</strong> Wähle in der Liste die gewünschte Disziplin aus und klicke auf "Laden". Die App wechselt automatisch zur Timer-Ansicht.</li>
+                        <li><strong>Timer starten:</strong> Klicke auf "Start", um den Ablauf zu beginnen.</li>
+                    </ol>
+                </div>
+                <div>
+                    <h3 class="text-amber-400 font-bold text-lg mt-4 mb-2">Timer-Funktionen</h3>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>Einzelne Phase starten:</strong> Klicke in der Phasen-Liste auf das grüne Play-Symbol (▶), um direkt bei dieser Phase einzusteigen.</li>
+                        <li><strong>EPP-Steuerung:</strong> Die EPP-Disziplin hat eine spezielle Steuerung mit Buttons wie "Station beenden" oder "Störung / Pause", die je nach Situation erscheinen.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-amber-400 font-bold text-lg mt-4 mb-2">Admin-Funktionen</h3>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>Editor:</strong> Wähle eine Disziplin, um sie zu bearbeiten, oder klicke auf "Neu", um eine eigene Disziplin von Grund auf zu erstellen.</li>
+                        <li><strong>Sammlung sichern/teilen:</strong> Mit "Sammlung kopieren" kannst du alle deine Disziplinen in die Zwischenablage kopieren. Mit "Aus Text einfügen" kannst du sie auf einem anderen Gerät wieder importieren.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-amber-400 font-bold text-lg mt-4 mb-2">Hinweis zur Lautstärke</h3>
+                    <p>Die Töne des Timers müssen auf dem Schießstand klar verständlich sein. Sollte die Lautstärke deines Geräts nicht ausreichen, empfehle ich den Anschluss eines externen Lautsprechers. Eine Kabel-gebundene Verbindung (z.B. über den Kopfhöreranschluss) ist dabei die zuverlässigste Methode. Ein Bluetooth-Lautsprecher funktioniert ebenfalls, beachte aber, dass es je nach Gerät zu minimalen Zeitverzögerungen beim Signalton kommen kann.</p>
+                </div>
+                <hr class="border-gray-700 my-2">
+                <p class="mt-2"><a href="manual.html" target="_blank" class="text-amber-500 hover:underline">Ausführliches Handbuch öffnen &rarr;</a></p>
+            </div>
         </div>
-
-        <div>
-            <h3 class="text-amber-400 font-bold text-lg mt-4 mb-2">Timer-Funktionen</h3>
-            <ul class="list-disc pl-5 space-y-2">
-                <li><strong>Einzelne Phase starten:</strong> Klicke in der Phasen-Liste auf das grüne Play-Symbol (▶), um direkt bei dieser Phase einzusteigen.</li>
-                <li><strong>EPP-Steuerung:</strong> Die EPP-Disziplin hat eine spezielle Steuerung mit Buttons wie "Station beenden" oder "Störung / Pause", die je nach Situation erscheinen.</li>
-            </ul>
-        </div>
-        
-        <div>
-            <h3 class="text-amber-400 font-bold text-lg mt-4 mb-2">Admin-Funktionen</h3>
-            <ul class="list-disc pl-5 space-y-2">
-                <li><strong>Editor:</strong> Wähle eine Disziplin, um sie zu bearbeiten, oder klicke auf "Neu", um eine eigene Disziplin von Grund auf zu erstellen.</li>
-                <li><strong>Sammlung sichern/teilen:</strong> Mit "Sammlung kopieren" kannst du alle deine Disziplinen in die Zwischenablage kopieren. Mit "Aus Text einfügen" kannst du sie auf einem anderen Gerät wieder importieren.</li>
-            </ul>
-        </div>
-
-        <div>
-            <h3 class="text-amber-400 font-bold text-lg mt-4 mb-2">Hinweis zur Lautstärke</h3>
-            <p>Die Töne des Timers müssen auf dem Schießstand klar verständlich sein. Sollte die Lautstärke deines Geräts nicht ausreichen, empfehle ich den Anschluss eines externen Lautsprechers. Eine Kabel-gebundene Verbindung (z.B. über den Kopfhöreranschluss) ist dabei die zuverlässigste Methode. Ein Bluetooth-Lautsprecher funktioniert ebenfalls, beachte aber, dass es je nach Gerät zu minimalen Zeitverzögerungen beim Signalton kommen kann.</p>
-        </div>
-        
-        <hr class="border-gray-700 my-2">
-        <p class="mt-2"><a href="manual.html" target="_blank" class="text-amber-500 hover:underline">Ausführliches Handbuch öffnen - complete manual (English) &rarr;</a></p>
-
-    </div>
-</div>
 
         <footer class="text-center text-xs text-gray-500 p-4 flex-shrink-0">
             <p>(C) Thomas Köhler - <a href="https://exen.info/" target="_blank" rel="noopener noreferrer" class="hover:underline text-amber-400">eXen.Info</a> | <a href="https://paypal.me/exen" target="_blank" rel="noopener noreferrer" class="hover:underline text-amber-400">Ein Dankeschön senden (PayPal)</a></p>
@@ -206,11 +200,13 @@
 
     </div>
 
+    <div id="update-notification" class="hidden fixed bottom-4 right-4 bg-gray-800 text-white p-4 rounded-lg shadow-lg flex items-center gap-4">
+        <p>Eine neue Version ist verfügbar.</p>
+        <button id="reload-button" class="bg-amber-500 hover:bg-amber-400 text-gray-900 font-bold py-1 px-3 rounded-md">Neu laden</button>
+    </div>
+
     <script src="vendor/Tone.js"></script>
     <script src="script.js"></script>
-    <div id="update-notification" class="hidden fixed bottom-4 right-4 bg-gray-800 text-white p-4 rounded-lg shadow-lg flex items-center gap-4">
-    <p>Eine neue Version ist verfügbar.</p>
-    <button id="reload-button" class="bg-amber-500 hover:bg-amber-400 text-gray-900 font-bold py-1 px-3 rounded-md">Neu laden</button>
-</div>
+    
 </body>
 </html>
