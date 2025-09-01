@@ -46,3 +46,22 @@ html, body {
 .btn-epp-pause:hover {
     background-color: #a16207; /* Yellow 700 */
 }
+/* Button-Stil für "Weiter" oder "Fortsetzen" */
+.btn-continue {
+    background-color: #2563eb; /* Blau 600 */
+}
+.btn-continue:hover {
+    background-color: #1d4ed8; /* Blau 700 */
+}
+/* Stile für die Update-Benachrichtigung */
+#update-notification {
+    z-index: 100;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#update-notification.show {
+    opacity: 1;
+    transform: translateY(0);
+}

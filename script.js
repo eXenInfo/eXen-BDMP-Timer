@@ -30,6 +30,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const eppRestzeitAnzeige = document.getElementById('epp-restzeit-anzeige');
     const eppNextStationBtn = document.getElementById('epp-next-station-btn');
     const eppPauseBtn = document.getElementById('epp-pause-btn');
+    const volumeSlider = document.getElementById('volume-slider');
+    const volumeDisplay = document.getElementById('volume-display');
+    const testToneBtn = document.getElementById('test-tone-btn');
     const newStageName = document.getElementById('new-stage-name');
     const newStagePrepTime = document.getElementById('new-stage-prep-time');
     const newStageDuration = document.getElementById('new-stage-duration');
@@ -54,9 +57,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const importTextArea = document.getElementById('import-text-area');
     const processImportBtn = document.getElementById('process-import-btn');
     const cancelImportBtn = document.getElementById('cancel-import-btn');
-    const volumeSlider = document.getElementById('volume-slider');
-    const volumeDisplay = document.getElementById('volume-display');
-    const testToneBtn = document.getElementById('test-tone-btn');
 
     // --- App State ---
     let disciplines = {};
@@ -64,6 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let liveStages = [];
     let activeDisciplineName = '';
     let currentlyEditingName = null;
+    let isEditorDirty = false;
     let currentStageIndex = 0;
     let currentRepetition = 1;
     let timeLeft = 0;
@@ -72,10 +73,10 @@ document.addEventListener('DOMContentLoaded', () => {
     let timerState = 'idle';
     let insertionIndex = -1;
     let audioInitialized = false;
+    let signalVolume = 0;
     let eppGesamtzeit = 330;
     let istEppAktiv = false;
     let isEditingEpp = false;
-    let signalVolume = 0; // in Dezibel, 0 ist Maximum
 
     const eppDiscipline = {
         name: "Europäischer Präzisions Parcours (EPP)",
@@ -126,19 +127,19 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.removeEventListener('touchend', oneTimeAudioInit);
     }
     const playSound = (dauerInSekunden = 0.5) => {
-    if (!audioInitialized) return;
-    try {
-        const soundSynth = new Tone.Synth({
-            volume: signalVolume, // HIER wird die Lautstärke gesetzt
-            oscillator: { type: "square", count: 16 },
-            envelope: { attack: 0.002, decay: 0.025, sustain: 1, release: 0.01 }
-        }).toDestination();
-        soundSynth.triggerAttackRelease("A5", dauerInSekunden);
-        setTimeout(() => { if (soundSynth) soundSynth.dispose(); }, dauerInSekunden * 1000 + 200);
-    } catch (e) {
-        console.error("Failed to play sound:", e);
-    }
-};
+        if (!audioInitialized) return;
+        try {
+            const soundSynth = new Tone.Synth({
+                volume: signalVolume,
+                oscillator: { type: "square", count: 16 },
+                envelope: { attack: 0.002, decay: 0.025, sustain: 1, release: 0.01 }
+            }).toDestination();
+            soundSynth.triggerAttackRelease("A5", dauerInSekunden);
+            setTimeout(() => { if (soundSynth) soundSynth.dispose(); }, dauerInSekunden * 1000 + 200);
+        } catch (e) {
+            console.error("Failed to play sound:", e);
+        }
+    };
 
     // --- Core Timer Logic (Standard Disziplinen) ---
     const tick = () => {
@@ -376,7 +377,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (eppTimerSection) eppTimerSection.style.display = 'none';
         if (eppNextStationBtn) eppNextStationBtn.classList.add('hidden');
         if (eppPauseBtn) eppPauseBtn.classList.add('hidden');
-
         if (!liveStages || liveStages.length === 0 || !liveStages[currentStageIndex]) {
             liveStageName.textContent = 'Disziplin laden...';
             liveTotalProgress.textContent = 'Bitte im Admin-Bereich eine Disziplin laden.';
@@ -384,10 +384,8 @@ document.addEventListener('DOMContentLoaded', () => {
             liveTimerDisplay.textContent = '00:00';
             return;
         }
-
         const stage = liveStages[currentStageIndex];
         liveResetBtn.classList.remove('hidden');
-
         if (istEppAktiv) {
             eppTimerSection.style.display = 'block';
             switch (timerState) {
@@ -398,6 +396,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     updateTimerDisplay();
                     liveStartBtn.classList.remove('hidden');
                     liveStartBtn.textContent = 'Achtung... (Start)';
+                    liveStartBtn.className = 'w-full max-w-xs bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 rounded-lg shadow-md transition-colors';
                     if (currentStageIndex > 0) {
                         eppNextStationBtn.classList.remove('hidden');
                         eppNextStationBtn.textContent = (currentStageIndex === liveStages.length - 1) ? 'Match-Ende' : 'Nächste Station';
@@ -414,6 +413,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (stage.pausable) {
                         eppPauseBtn.classList.remove('hidden');
                         eppPauseBtn.textContent = 'Störung / Pause';
+                        eppPauseBtn.className = 'btn-epp-pause w-full max-w-xs text-white font-bold py-3 px-4 rounded-lg shadow-md';
                     }
                     if (timerState === 'epp_running_open') {
                         eppNextStationBtn.classList.remove('hidden');
@@ -425,6 +425,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     liveTotalProgress.textContent = "Zum Fortsetzen erneut auf 'Fortsetzen' klicken.";
                     eppPauseBtn.classList.remove('hidden');
                     eppPauseBtn.textContent = 'Fortsetzen';
+                    eppPauseBtn.className = 'btn-continue w-full max-w-xs text-white font-bold py-3 px-4 rounded-lg shadow-md';
                     break;
                 case 'finished':
                     liveStageName.textContent = 'Match beendet!';
@@ -441,10 +442,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     liveTotalProgress.textContent = `Bereit für Phase ${currentStageIndex + 1} von ${liveStages.length}.`;
                     liveStartBtn.classList.remove('hidden');
                     liveStartBtn.textContent = 'Start';
+                    liveStartBtn.className = 'w-full max-w-xs bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 rounded-lg shadow-md transition-colors';
                     break;
                 case 'prep':
                 case 'running':
                 case 'rep_pause':
+                    liveResetBtn.classList.remove('hidden');
                     if (timerState === 'prep') liveStageName.textContent = 'Vorbereitung';
                     else if (timerState === 'running') liveStageName.textContent = stage.name + (stage.repetitions > 1 ? ` (${currentRepetition}/${stage.repetitions})` : '');
                     else liveStageName.textContent = 'Pause';
@@ -457,6 +460,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     updateTimerDisplay();
                     liveStartBtn.classList.remove('hidden');
                     liveStartBtn.textContent = 'Weiter';
+                    liveStartBtn.className = 'btn-continue w-full max-w-xs text-white font-bold py-3 px-4 rounded-lg shadow-md transition-colors';
                     break;
                 case 'finished':
                     liveStageName.textContent = 'Fertig!';
@@ -555,33 +559,40 @@ document.addEventListener('DOMContentLoaded', () => {
         const finalInsertionIndex = (insertionIndex === -1) ? editorStages.length : insertionIndex;
         editorStages.splice(finalInsertionIndex, 0, newStage);
         insertionIndex = finalInsertionIndex + 1;
+        isEditorDirty = true;
         renderAdminStagesList();
         newStageName.value = ''; newStagePrepTime.value = ''; newStageDuration.value = ''; newStageReps.value = '1'; newStagePause.value = '';
         newStageSoundStart.checked = true; newStageSoundEnd.checked = true; newStagePauseAfter.checked = false;
     };
-    const removeStage = (index) => { editorStages.splice(index, 1); renderAdminStagesList(); };
-    const moveStage = (index, direction) => { const newIndex = index + direction; if (newIndex < 0 || newIndex >= editorStages.length) return;[editorStages[index], editorStages[newIndex]] = [editorStages[newIndex], editorStages[index]]; renderAdminStagesList(); };
-    const duplicateStage = (index) => { const stageToDuplicate = JSON.parse(JSON.stringify(editorStages[index])); editorStages.splice(index + 1, 0, stageToDuplicate); insertionIndex = index + 2; renderAdminStagesList(); };
+    const removeStage = (index) => { editorStages.splice(index, 1); isEditorDirty = true; renderAdminStagesList(); };
+    const moveStage = (index, direction) => { const newIndex = index + direction; if (newIndex < 0 || newIndex >= editorStages.length) return;[editorStages[index], editorStages[newIndex]] = [editorStages[newIndex], editorStages[index]]; isEditorDirty = true; renderAdminStagesList(); };
+    const duplicateStage = (index) => { const stageToDuplicate = JSON.parse(JSON.stringify(editorStages[index])); editorStages.splice(index + 1, 0, stageToDuplicate); insertionIndex = index + 2; isEditorDirty = true; renderAdminStagesList(); };
     const openEditModal = (index) => { const stage = editorStages[index]; editStageIndexInput.value = index; editStageNameInput.value = stage.name; editStagePrepTimeInput.value = stage.prepTime || 0; editStageDurationInput.value = stage.duration; editStageRepsInput.value = stage.repetitions; editStagePauseInput.value = stage.pauseDuration || 0; editStageSoundStartInput.checked = stage.soundAtStart; editStageSoundEndInput.checked = stage.soundAtEnd; editStagePauseAfterInput.checked = stage.pauseAfter; editModal.classList.remove('hidden'); };
     const closeEditModal = () => editModal.classList.add('hidden');
-    const handleUpdateStage = () => { const index = parseInt(editStageIndexInput.value); const duration = parseInt(editStageDurationInput.value); if (isNaN(duration)) { alert("Bitte geben Sie eine gültige Dauer an."); return; } editorStages[index] = { name: editStageNameInput.value.trim() || 'Unbenannte Phase', prepTime: parseInt(editStagePrepTimeInput.value) || 0, duration: duration, repetitions: parseInt(editStageRepsInput.value) || 1, pauseDuration: parseInt(editStagePauseInput.value) || 0, soundAtStart: editStageSoundStartInput.checked, soundAtEnd: editStageSoundEndInput.checked, pauseAfter: editStagePauseAfterInput.checked }; renderAdminStagesList(); closeEditModal(); };
+    const handleUpdateStage = () => { const index = parseInt(editStageIndexInput.value); const duration = parseInt(editStageDurationInput.value); if (isNaN(duration)) { alert("Bitte geben Sie eine gültige Dauer an."); return; } editorStages[index] = { name: editStageNameInput.value.trim() || 'Unbenannte Phase', prepTime: parseInt(editStagePrepTimeInput.value) || 0, duration: duration, repetitions: parseInt(editStageRepsInput.value) || 1, pauseDuration: parseInt(editStagePauseInput.value) || 0, soundAtStart: editStageSoundStartInput.checked, soundAtEnd: editStageSoundEndInput.checked, pauseAfter: editStagePauseAfterInput.checked }; isEditorDirty = true; renderAdminStagesList(); closeEditModal(); };
     const renderDisciplineSelector = () => { const currentAdminSelection = adminDisciplineSelect.value; adminDisciplineSelect.innerHTML = ''; const names = Object.keys(disciplines).sort((a, b) => a.localeCompare(b)); if (names.length === 0) { adminDisciplineSelect.innerHTML = `<option>Keine Disziplinen</option>`; adminLoadBtn.disabled = true; adminDeleteBtn.disabled = true; return; } names.forEach(name => { const option = document.createElement('option'); option.value = name; option.textContent = name; adminDisciplineSelect.appendChild(option); }); if (disciplines[currentAdminSelection]) adminDisciplineSelect.value = currentAdminSelection; else if (names.length > 0) adminDisciplineSelect.value = names[0]; adminLoadBtn.disabled = false; adminDeleteBtn.disabled = false; };
     const saveDisciplinesToStorage = () => { try { localStorage.setItem('bdmpTimerDisciplines', JSON.stringify(disciplines)); localStorage.setItem('bdmpTimerActiveDiscipline', activeDisciplineName); } catch (e) { console.error("Failed to save to localStorage", e); alert("Fehler beim Speichern der Daten."); } };
     const loadDisciplinesFromStorage = () => { const stored = localStorage.getItem('bdmpTimerDisciplines'); if (stored) { try { disciplines = JSON.parse(stored); } catch { disciplines = {}; } } else { disciplines = {}; } const lastActive = localStorage.getItem('bdmpTimerActiveDiscipline'); if (lastActive && disciplines[lastActive]) { loadDisciplineForTimer(lastActive, false); } renderDisciplineSelector(); };
     function createNewDiscipline() {
+        if (isEditorDirty && !confirm("Sie haben ungespeicherte Änderungen. Wirklich verwerfen?")) return;
         editorStages = [];
         disciplineNameInput.value = '';
         editingDisciplineName.textContent = 'Neue Disziplin';
         isEditingEpp = false;
         currentlyEditingName = null;
+        isEditorDirty = false;
         renderAdminStagesList();
     }
     async function loadDisciplinesFromServer() {
         if (!confirm("Möchten Sie die Standard-Disziplinen & EPP laden? Bestehende Disziplinen mit gleichem Namen werden überschrieben.")) return;
         try {
             const response = await fetch('disziplinen.txt');
-            if (!response.ok) throw new Error(`Netzwerk-Fehler: ${response.status}`);
-            const serverDisciplines = await response.json();
+            if (!response.ok) {
+                if (response.status === 404) throw new Error("Fehler 404: Die Datei 'disziplinen.txt' wurde nicht gefunden.");
+                else throw new Error(`Netzwerk-Fehler: ${response.status}`);
+            }
+            const serverDisciplinesText = await response.text();
+            const serverDisciplines = JSON.parse(serverDisciplinesText);
             for (const name in serverDisciplines) {
                 disciplines[name] = serverDisciplines[name];
             }
@@ -592,10 +603,15 @@ document.addEventListener('DOMContentLoaded', () => {
             alert(`Standard-Disziplinen und EPP wurden geladen/aktualisiert.`);
         } catch (error) {
             console.error('Fehler beim Laden der Standard-Disziplinen:', error);
-            alert('Fehler: Die Disziplinen konnten nicht geladen werden.');
+            if (error instanceof SyntaxError) {
+                alert("Fehler: Die Datei 'disziplinen.txt' scheint ein ungültiges Format zu haben.");
+            } else {
+                alert(error.message);
+            }
         }
     }
     function loadDisciplineForEditor(name) {
+        if (isEditorDirty && !confirm("Sie haben ungespeicherte Änderungen. Wirklich verwerfen?")) return;
         if (!disciplines[name]) {
             createNewDiscipline();
             return;
@@ -618,6 +634,7 @@ document.addEventListener('DOMContentLoaded', () => {
         disciplineNameInput.value = name;
         editingDisciplineName.textContent = name;
         insertionIndex = editorStages.length;
+        isEditorDirty = false;
         renderAdminStagesList();
     }
     function handleSaveDiscipline() {
@@ -632,13 +649,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const originalDiscipline = disciplines[currentlyEditingName] || eppDiscipline;
             const newEppPhases = editorStages.map((stage, index) => {
                 const originalPhase = originalDiscipline.phases[index] || { station: 'Unbekannt', distanz: '', anschlag: '', beschreibung: '' };
-                return {
-                    ...originalPhase,
-                    zeitLimit: stage.duration || 0,
-                    pausable: (stage.duration === 0),
-                    warnSignal: stage.soundAtEnd ? Math.max(0, (stage.duration || 0) - 2) : 0,
-                    stoppSignalDauer: stage.soundAtEnd ? 2 : 0,
-                };
+                return { ...originalPhase, zeitLimit: stage.duration || 0, pausable: (stage.duration === 0), warnSignal: stage.soundAtEnd ? Math.max(0, (stage.duration || 0) - 2) : 0, stoppSignalDauer: stage.soundAtEnd ? 2 : 0, };
             });
             disciplineData = { ...originalDiscipline, name: newName, prepTime: editorStages.length > 0 ? editorStages[0].prepTime : 3, phases: newEppPhases };
         } else {
@@ -649,6 +660,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         disciplines[newName] = disciplineData;
         saveDisciplinesToStorage();
+        isEditorDirty = false;
         renderDisciplineSelector();
         adminDisciplineSelect.value = newName;
         currentlyEditingName = newName;
@@ -749,6 +761,27 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // --- Audio Volume Control Logic ---
+    function updateVolume(value) {
+        const percentage = parseInt(value, 10);
+        volumeDisplay.textContent = percentage;
+        if (percentage === 0) {
+            signalVolume = -Infinity;
+        } else {
+            signalVolume = Tone.gainToDb(percentage / 100);
+        }
+        localStorage.setItem('bdmpTimerVolume', percentage);
+    }
+    function loadVolumeSetting() {
+        const savedVolume = localStorage.getItem('bdmpTimerVolume');
+        if (savedVolume !== null) {
+            volumeSlider.value = savedVolume;
+            updateVolume(savedVolume);
+        } else {
+            updateVolume(100);
+        }
+    }
+
     // --- Event Listeners ---
     document.body.addEventListener('click', oneTimeAudioInit, { once: true });
     document.body.addEventListener('touchend', oneTimeAudioInit, { once: true });
@@ -774,59 +807,52 @@ document.addEventListener('DOMContentLoaded', () => {
     processImportBtn.addEventListener('click', processImportFromText);
     exportAllBtn.addEventListener('click', handleExportAll);
     adminExportSingleBtn.addEventListener('click', handleExportSingle);
-// --- KORREKTUR: Die Funktion muss hier definiert sein ---
-function copyToClipboard(text, successMessage) {
-    navigator.clipboard.writeText(text).then(() => {
-        alert(successMessage);
-    }).catch(err => {
-        console.error('Fehler beim Kopieren: ', err);
-        alert('Kopieren fehlgeschlagen.');
-    });
-}
+    if (volumeSlider) { volumeSlider.addEventListener('input', (e) => updateVolume(e.target.value)); }
+    if (testToneBtn) { testToneBtn.addEventListener('click', () => { initAudio(); playSound(); }); }
 
-// --- Audio Volume Control Logic ---
-function updateVolume(value) {
-    const percentage = parseInt(value, 10);
-    volumeDisplay.textContent = percentage;
-
-    // Umrechnung von Prozent (0-100) in Dezibel (ca. -40 bis 0)
-    if (percentage === 0) {
-        signalVolume = -Infinity; // Stumm
-    } else {
-        // Eine nicht-lineare Skala fühlt sich natürlicher an
-        signalVolume = Tone.gainToDb(percentage / 100);
-    }
-    localStorage.setItem('bdmpTimerVolume', percentage);
-}
-
-function loadVolumeSetting() {
-    const savedVolume = localStorage.getItem('bdmpTimerVolume');
-    if (savedVolume !== null) {
-        volumeSlider.value = savedVolume;
-        updateVolume(savedVolume);
-    } else {
-        updateVolume(100); // Standardwert
-    }
-}
-
-// Event Listeners für die neuen Elemente
-if (volumeSlider) {
-    volumeSlider.addEventListener('input', (e) => {
-        updateVolume(e.target.value);
-    });
-}
-if (testToneBtn) {
-    testToneBtn.addEventListener('click', () => {
-        initAudio();
-        playSound();
-    });
-}
-    // --- Initial Load ---
+// --- Initial Load ---
     loadDisciplinesFromStorage();
     loadVolumeSetting();
     if (Object.keys(disciplines).length > 0) {
         loadDisciplineForEditor(adminDisciplineSelect.value);
     } else {
         createNewDiscipline();
+    }
+
+    // --- PWA Update Notification Logic ---
+    let newWorker;
+
+    function showUpdateNotification() {
+        const notification = document.getElementById('update-notification');
+        const reloadButton = document.getElementById('reload-button');
+
+        if (!notification || !reloadButton) return;
+
+        reloadButton.addEventListener('click', () => {
+            newWorker.postMessage({ action: 'skipWaiting' });
+        });
+
+        notification.classList.remove('hidden');
+        setTimeout(() => notification.classList.add('show'), 10);
+    }
+
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('./sw.js').then(reg => {
+            reg.addEventListener('updatefound', () => {
+                newWorker = reg.installing;
+                newWorker.addEventListener('statechange', () => {
+                    if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                        showUpdateNotification();
+                    }
+                });
+            });
+        });
+
+        let refreshing;
+        navigator.serviceWorker.addEventListener('controllerchange', () => {
+            if (refreshing) return;
+            window.location.reload();
+            refreshing = true;
+        });
     }
 });
