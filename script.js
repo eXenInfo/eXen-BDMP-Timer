@@ -288,7 +288,6 @@ document.addEventListener('DOMContentLoaded', () => {
         stationTimerInterval = null;
         clearInterval(mainEppTimerInterval);
         mainEppTimerInterval = null;
-
         if (currentStageIndex === liveStages.length - 1) {
             finishSequence();
         } else if (isAutomatic) {
@@ -661,9 +660,9 @@ document.addEventListener('DOMContentLoaded', () => {
         disciplines[newName] = disciplineData;
         saveDisciplinesToStorage();
         isEditorDirty = false;
+        currentlyEditingName = newName;
         renderDisciplineSelector();
         adminDisciplineSelect.value = newName;
-        currentlyEditingName = newName;
         editingDisciplineName.textContent = newName;
         alert(`Disziplin "${newName}" wurde gespeichert!`);
     }
@@ -810,7 +809,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (volumeSlider) { volumeSlider.addEventListener('input', (e) => updateVolume(e.target.value)); }
     if (testToneBtn) { testToneBtn.addEventListener('click', () => { initAudio(); playSound(); }); }
 
-// --- Initial Load ---
+    // --- Initial Load ---
     loadDisciplinesFromStorage();
     loadVolumeSetting();
     if (Object.keys(disciplines).length > 0) {
@@ -818,24 +817,19 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         createNewDiscipline();
     }
-
+    
     // --- PWA Update Notification Logic ---
     let newWorker;
-
     function showUpdateNotification() {
         const notification = document.getElementById('update-notification');
         const reloadButton = document.getElementById('reload-button');
-
         if (!notification || !reloadButton) return;
-
         reloadButton.addEventListener('click', () => {
             newWorker.postMessage({ action: 'skipWaiting' });
         });
-
         notification.classList.remove('hidden');
         setTimeout(() => notification.classList.add('show'), 10);
     }
-
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('./sw.js').then(reg => {
             reg.addEventListener('updatefound', () => {
@@ -847,7 +841,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             });
         });
-
         let refreshing;
         navigator.serviceWorker.addEventListener('controllerchange', () => {
             if (refreshing) return;
