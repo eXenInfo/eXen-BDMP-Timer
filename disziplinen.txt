@@ -1,0 +1,536 @@
+{
+  "Police Pistol 2 (PP2)": [
+    {
+      "name": "Station A: 10m\n2x 6 Schuss in 5 Sekunden",
+      "prepTime": 5,
+      "duration": 5,
+      "repetitions": 2,
+      "pauseDuration": 10,
+      "soundAtStart": true,
+      "soundAtEnd": true,
+      "pauseAfter": true
+    },
+    {
+      "name": "Station B: 50m\n24 Schuss in 3 Minuten",
+      "prepTime": 5,
+      "duration": 180,
+      "repetitions": 1,
+      "pauseDuration": 0,
+      "soundAtStart": true,
+      "soundAtEnd": true,
+      "pauseAfter": true
+    },
+    {
+      "name": "Station C: 25m\n24 Schuss in 2 Minuten",
+      "prepTime": 5,
+      "duration": 120,
+      "repetitions": 1,
+      "pauseDuration": 0,
+      "soundAtStart": true,
+      "soundAtEnd": true,
+      "pauseAfter": false
+    }
+  ],
+  "Police Pistol 3 (Carry Gun)": [
+    {
+      "name": "Stage 1: 20m\n2x 5 Schuss in 100 Sekunden",
+      "prepTime": 5,
+      "duration": 100,
+      "repetitions": 2,
+      "pauseDuration": 10,
+      "soundAtStart": true,
+      "soundAtEnd": true,
+      "pauseAfter": true
+    },
+    {
+      "name": "Stage 2: 15m\n2x (5x 1 Schuss in 2s)",
+      "prepTime": 5,
+      "duration": 2,
+      "repetitions": 10,
+      "pauseDuration": 5,
+      "soundAtStart": true,
+      "soundAtEnd": true,
+      "pauseAfter": true
+    },
+    {
+      "name": "Stage 3: 10m\n2x (max. 2-2-1 Schuss in 3x 2s)",
+      "prepTime": 5,
+      "duration": 2,
+      "repetitions": 6,
+      "pauseDuration": 5,
+      "soundAtStart": true,
+      "soundAtEnd": true,
+      "pauseAfter": false
+    }
+  ],
+  "Police Pistol 4 (Pocket Gun)": [
+    {
+      "name": "Stage 1: 15m\n2x 5 Schuss in 100 Sekunden",
+      "prepTime": 5,
+      "duration": 100,
+      "repetitions": 2,
+      "pauseDuration": 10,
+      "soundAtStart": true,
+      "soundAtEnd": true,
+      "pauseAfter": true
+    },
+    {
+      "name": "Stage 2: 10m\n2x (5x 1 Schuss in 2s)",
+      "prepTime": 5,
+      "duration": 2,
+      "repetitions": 10,
+      "pauseDuration": 5,
+      "soundAtStart": true,
+      "soundAtEnd": true,
+      "pauseAfter": true
+    },
+    {
+      "name": "Stage 3: 7m\n2x (max. 2-2-1 Schuss in 3x 2s)",
+      "prepTime": 5,
+      "duration": 2,
+      "repetitions": 6,
+      "pauseDuration": 5,
+      "soundAtStart": true,
+      "soundAtEnd": true,
+      "pauseAfter": false
+    }
+  ],
+  "BDMP 1020": [
+    {
+      "name": "Match 1: 7 Meter\n12 Schuss stehend frei.\nWaffen laden und Holstern.\nIst jemand nicht fertig? - ACHTUNG!",
+      "prepTime": 3,
+      "duration": 20,
+      "repetitions": 1,
+      "pauseDuration": 0,
+      "soundAtStart": true,
+      "soundAtEnd": true,
+      "pauseAfter": true
+    },
+    {
+      "name": "Match 1: 15 Meter\n12 Schuss stehend frei.\nWaffen laden und Holstern.\nIst jemand nicht fertig? - ACHTUNG!",
+      "prepTime": 3,
+      "duration": 20,
+      "repetitions": 1,
+      "pauseDuration": 0,
+      "soundAtStart": true,
+      "soundAtEnd": true,
+      "pauseAfter": true
+    },
+    {
+      "name": "Match 2: 25 Meter\n18 Schuss (6 kniend, 6 links, 6 rechts)\nWaffen laden und Holstern.\nIst jemand nicht fertig? - ACHTUNG!",
+      "prepTime": 3,
+      "duration": 90,
+      "repetitions": 1,
+      "pauseDuration": 0,
+      "soundAtStart": true,
+      "soundAtEnd": true,
+      "pauseAfter": true
+    },
+    {
+      "name": "Match 3: 25 Meter (1. Durchgang)\n12 Schuss stehend frei.\nWaffen laden und Holstern.\nIst jemand nicht fertig? - ACHTUNG!",
+      "prepTime": 3,
+      "duration": 35,
+      "repetitions": 1,
+      "pauseDuration": 0,
+      "soundAtStart": true,
+      "soundAtEnd": true,
+      "pauseAfter": true
+    },
+    {
+      "name": "Match 3: 25 Meter (2. Durchgang)\n12 Schuss stehend frei.\nWaffen laden und Holstern.\nIst jemand nicht fertig? - ACHTUNG!",
+      "prepTime": 3,
+      "duration": 35,
+      "repetitions": 1,
+      "pauseDuration": 0,
+      "soundAtStart": true,
+      "soundAtEnd": true,
+      "pauseAfter": true
+    },
+    {
+      "name": "Match 4: 25 Meter\n24 Schuss (6 sitzend, 6 kniend, 6 links, 6 rechts).\nWaffen laden und Holstern.\nIst jemand nicht fertig? - ACHTUNG!",
+      "prepTime": 3,
+      "duration": 165,
+      "repetitions": 1,
+      "pauseDuration": 0,
+      "soundAtStart": true,
+      "soundAtEnd": true,
+      "pauseAfter": true
+    },
+    {
+      "name": "Match 5: 25 Meter (1. Durchgang)\n6 Schuss stehend frei.\nWaffen laden und Holstern.\nIst jemand nicht fertig? - ACHTUNG!",
+      "prepTime": 3,
+      "duration": 12,
+      "repetitions": 1,
+      "pauseDuration": 0,
+      "soundAtStart": true,
+      "soundAtEnd": true,
+      "pauseAfter": true
+    },
+    {
+      "name": "Match 5: 25 Meter (2. Durchgang)\n6 Schuss stehend frei.\nWaffen laden und Holstern.\nIst jemand nicht fertig? - ACHTUNG!",
+      "prepTime": 3,
+      "duration": 12,
+      "repetitions": 1,
+      "pauseDuration": 0,
+      "soundAtStart": true,
+      "soundAtEnd": true,
+      "pauseAfter": false
+    }
+  ],
+  "BDMP 1500  Matches 1-5 C.8.2": [
+    {
+      "name": "Match 1: 7 Meter/Yards - 20 Sekunden - nur double action\n12 Schüsse    stehend frei",
+      "prepTime": 3,
+      "duration": 20,
+      "repetitions": 1,
+      "pauseDuration": 0,
+      "soundAtStart": true,
+      "soundAtEnd": true,
+      "pauseAfter": true
+    },
+    {
+      "name": "Match 1: 15 Meter/Yards - 20 Sekunden - nur double action\n12 Schüsse    stehend frei",
+      "prepTime": 3,
+      "duration": 20,
+      "repetitions": 1,
+      "pauseDuration": 0,
+      "soundAtStart": true,
+      "soundAtEnd": true,
+      "pauseAfter": true
+    },
+    {
+      "name": "Match 2: 25 Meter/Yards - 90 Sekunden - nur double action \n6 Schüsse    kniend frei\n6 Schüsse    stehend, linke Hand, Pfosten links\n6 Schüsse    stehend, rechte Hand, Pfosten rechts",
+      "prepTime": 3,
+      "duration": 90,
+      "repetitions": 1,
+      "pauseDuration": 0,
+      "soundAtStart": true,
+      "soundAtEnd": true,
+      "pauseAfter": true
+    },
+    {
+      "name": "Match 3:  50 Meter/Yards - 165 Sekunden - auch single action erlaubt\n6 Schüsse    sitzend\n6 Schüsse    liegend\n6 Schüsse    stehend, linke Hand, Pfosten links\n6 Schüsse    stehend, rechte Hand, Pfosten rechts",
+      "prepTime": 3,
+      "duration": 165,
+      "repetitions": 1,
+      "pauseDuration": 0,
+      "soundAtStart": true,
+      "soundAtEnd": true,
+      "pauseAfter": true
+    },
+    {
+      "name": "Match 4: 25 Meter/Yards - 35 Sekunden - nur double action\n12 Schüsse    stehend frei",
+      "prepTime": 3,
+      "duration": 35,
+      "repetitions": 1,
+      "pauseDuration": 0,
+      "soundAtStart": true,
+      "soundAtEnd": true,
+      "pauseAfter": true
+    },
+    {
+      "name": "Wiederholung\nMatch 4: 25 Meter/Yards - 35 Sekunden - nur double action\n12 Schüsse    stehend frei",
+      "prepTime": 3,
+      "duration": 35,
+      "repetitions": 1,
+      "pauseDuration": 0,
+      "soundAtStart": true,
+      "soundAtEnd": true,
+      "pauseAfter": true
+    },
+    {
+      "name": "Match 5 - Station 1: \n7 Meter/Yards - 20 Sekunden - nur double action \n12 Schüsse    stehend frei",
+      "prepTime": 3,
+      "duration": 20,
+      "repetitions": 1,
+      "pauseDuration": 0,
+      "soundAtStart": true,
+      "soundAtEnd": true,
+      "pauseAfter": true
+    },
+    {
+      "name": "Match 5 - Station 2:\n25 Meter/Yards - 90 Sekunden - nur double action\n6 Schüsse    kniend frei\n6 Schüsse    linke Hand, Pfosten links\n6 Schüsse    rechte Hand, Pfosten rechts",
+      "prepTime": 3,
+      "duration": 90,
+      "repetitions": 1,
+      "pauseDuration": 0,
+      "soundAtStart": true,
+      "soundAtEnd": true,
+      "pauseAfter": true
+    },
+    {
+      "name": "Match 5 - Station 3:\n50 Meter/Yards - 165 Sekunden - auch single action erlaubt\n6 Schüsse sitzend\n6 Schüsse liegend\n6 Schüsse stehend, linke Hand, Pfosten links\n6 Schüsse stehend, rechte Hand, Pfosten rechts",
+      "prepTime": 3,
+      "duration": 165,
+      "repetitions": 1,
+      "pauseDuration": 0,
+      "soundAtStart": true,
+      "soundAtEnd": true,
+      "pauseAfter": true
+    }
+  ],
+  "NPA Service Pistole (A-B-OS)": [
+    {
+      "name": "Stage 1 - 25 Meter\n6 Schuss in 15 Sekunden auf die linke Scheibe.\nIst jemand nicht fertig? - ACHTUNG!",
+      "prepTime": 3,
+      "duration": 15,
+      "repetitions": 1,
+      "pauseDuration": 0,
+      "soundAtStart": true,
+      "soundAtEnd": true,
+      "pauseAfter": true
+    },
+    {
+      "name": "Stage 2 - 20 Meter\n6 Schuss in 10 Sekunden davon 3 auf jede Scheibe.\nIst jemand nicht fertig? - ACHTUNG!",
+      "prepTime": 3,
+      "duration": 10,
+      "repetitions": 1,
+      "pauseDuration": 0,
+      "soundAtStart": true,
+      "soundAtEnd": true,
+      "pauseAfter": true
+    },
+    {
+      "name": "Stage 3 - 15 Meter\n2 Schuss in 3 Sekunden mit 3 Wiederholungen auf die rechte Scheibe.\nIst jemand nicht fertig? - ACHTUNG!",
+      "prepTime": 3,
+      "duration": 3,
+      "repetitions": 3,
+      "pauseDuration": 7,
+      "soundAtStart": true,
+      "soundAtEnd": true,
+      "pauseAfter": true
+    },
+    {
+      "name": "Stage 4 - 10 Meter\n6 Schuss in 6 Sekunden davon 3 auf jede Scheibe.\nIst jemand nicht fertig? - ACHTUNG!",
+      "prepTime": 3,
+      "duration": 6,
+      "repetitions": 1,
+      "pauseDuration": 0,
+      "soundAtStart": true,
+      "soundAtEnd": true,
+      "pauseAfter": false
+    }
+  ],
+  "Police Pistol 1 (A-B-OS)": [
+    {
+      "name": "Stage 1: 25m\n12 Schuss, bzw. 2x6 Schuss in 120 Sekunden.\nWaffen laden und fertig machen.\nIst jemand nicht fertig? - ACHTUNG!",
+      "prepTime": 5,
+      "duration": 120,
+      "repetitions": 1,
+      "pauseDuration": 0,
+      "soundAtStart": true,
+      "soundAtEnd": true,
+      "pauseAfter": true
+    },
+    {
+      "name": "Stage 2: 15m (1. Durchgang)\n6x 1 Schuss in 2 Sekunden.\nWaffen laden und fertig machen.\nIst jemand nicht fertig? - ACHTUNG!",
+      "prepTime": 5,
+      "duration": 2,
+      "repetitions": 6,
+      "pauseDuration": 5,
+      "soundAtStart": true,
+      "soundAtEnd": true,
+      "pauseAfter": false
+    },
+    {
+      "name": "Stage 2: 15m (2. Durchgang)\n6x 1 Schuss in 2 Sekunden.\nWaffen laden und fertig machen.\nIst jemand nicht fertig? - ACHTUNG!",
+      "prepTime": 5,
+      "duration": 2,
+      "repetitions": 6,
+      "pauseDuration": 5,
+      "soundAtStart": true,
+      "soundAtEnd": true,
+      "pauseAfter": true
+    },
+    {
+      "name": "Stage 3: 10m\n3x 2 Schuss in 2 Sekunden.\nWaffen laden und fertig machen.\nIst jemand nicht fertig? - ACHTUNG!",
+      "prepTime": 5,
+      "duration": 2,
+      "repetitions": 3,
+      "pauseDuration": 5,
+      "soundAtStart": true,
+      "soundAtEnd": true,
+      "pauseAfter": false
+    }
+  ],
+  "Police Pistol 1 (SM)": [
+    {
+      "name": "Stage 1: 25m\n2x 5 Schuss in 120 Sekunden",
+      "prepTime": 5,
+      "duration": 120,
+      "repetitions": 2,
+      "pauseDuration": 10,
+      "soundAtStart": true,
+      "soundAtEnd": true,
+      "pauseAfter": true
+    },
+    {
+      "name": "Stage 2: 15m\n2x (5x 1 Schuss in 3s)",
+      "prepTime": 5,
+      "duration": 3,
+      "repetitions": 10,
+      "pauseDuration": 5,
+      "soundAtStart": true,
+      "soundAtEnd": true,
+      "pauseAfter": true
+    },
+    {
+      "name": "Stage 3: 10m\n2x (5x 1 Schuss in 2s)",
+      "prepTime": 5,
+      "duration": 2,
+      "repetitions": 10,
+      "pauseDuration": 5,
+      "soundAtStart": true,
+      "soundAtEnd": true,
+      "pauseAfter": false
+    }
+  ],
+  "Zeitkontrolle Schütze": [
+    {
+      "name": "90 Sekunden",
+      "prepTime": 0,
+      "duration": 9,
+      "repetitions": 1,
+      "pauseDuration": 0,
+      "soundAtStart": false,
+      "soundAtEnd": false,
+      "pauseAfter": false
+    },
+    {
+      "name": "165 Sekunden",
+      "prepTime": 0,
+      "duration": 165,
+      "repetitions": 1,
+      "pauseDuration": 0,
+      "soundAtStart": false,
+      "soundAtEnd": false,
+      "pauseAfter": false
+    }
+  ],
+  "Police Pistol 1 (LAR)": [
+    {
+      "name": "Stage 1: 25m\n12 Schuss in 2 Minuten",
+      "prepTime": 5,
+      "duration": 120,
+      "repetitions": 1,
+      "pauseDuration": 0,
+      "soundAtStart": true,
+      "soundAtEnd": true,
+      "pauseAfter": true
+    },
+    {
+      "name": "Stage 2: 15m (1. Durchgang)\n6x 1 Schuss in 2 Sekunden",
+      "prepTime": 5,
+      "duration": 2,
+      "repetitions": 6,
+      "pauseDuration": 5,
+      "soundAtStart": true,
+      "soundAtEnd": true,
+      "pauseAfter": true
+    },
+    {
+      "name": "Stage 2: 15m (2. Durchgang)\n6x 1 Schuss in 2 Sekunden",
+      "prepTime": 5,
+      "duration": 2,
+      "repetitions": 6,
+      "pauseDuration": 5,
+      "soundAtStart": true,
+      "soundAtEnd": true,
+      "pauseAfter": true
+    },
+    {
+      "name": "Stage 3: 10m\n3x 2 Schuss in 3 Sekunden",
+      "prepTime": 5,
+      "duration": 3,
+      "repetitions": 3,
+      "pauseDuration": 5,
+      "soundAtStart": true,
+      "soundAtEnd": true,
+      "pauseAfter": false
+    }
+  ],
+  "Police Pistol 1 (30M1 / SpCb)": [
+    {
+      "name": "Stage 1: 25m\n12 Schuss in 2 Minuten",
+      "prepTime": 5,
+      "duration": 120,
+      "repetitions": 1,
+      "pauseDuration": 0,
+      "soundAtStart": true,
+      "soundAtEnd": true,
+      "pauseAfter": true
+    },
+    {
+      "name": "Stage 2: 15m (1. Durchgang)\n6x 1 Schuss in 3 Sekunden",
+      "prepTime": 5,
+      "duration": 3,
+      "repetitions": 6,
+      "pauseDuration": 5,
+      "soundAtStart": true,
+      "soundAtEnd": true,
+      "pauseAfter": true
+    },
+    {
+      "name": "Stage 2: 15m (2. Durchgang)\n6x 1 Schuss in 3 Sekunden",
+      "prepTime": 5,
+      "duration": 3,
+      "repetitions": 6,
+      "pauseDuration": 5,
+      "soundAtStart": true,
+      "soundAtEnd": true,
+      "pauseAfter": true
+    },
+    {
+      "name": "Stage 3: 10m\n3x 2 Schuss in 3 Sekunden",
+      "prepTime": 5,
+      "duration": 3,
+      "repetitions": 3,
+      "pauseDuration": 5,
+      "soundAtStart": true,
+      "soundAtEnd": true,
+      "pauseAfter": false
+    }
+  ],
+  "NPA Service Pistol (30M1 / SpCb / LAR)": [
+    {
+      "name": "Stage 1: 25m\n6 Schuss in 15 Sekunden",
+      "prepTime": 3,
+      "duration": 15,
+      "repetitions": 1,
+      "pauseDuration": 0,
+      "soundAtStart": true,
+      "soundAtEnd": true,
+      "pauseAfter": true
+    },
+    {
+      "name": "Stage 2: 20m\n6 Schuss in 10 Sekunden",
+      "prepTime": 3,
+      "duration": 10,
+      "repetitions": 1,
+      "pauseDuration": 0,
+      "soundAtStart": true,
+      "soundAtEnd": true,
+      "pauseAfter": true
+    },
+    {
+      "name": "Stage 3: 15m\n3x 2 Schuss in 3 Sekunden",
+      "prepTime": 3,
+      "duration": 3,
+      "repetitions": 3,
+      "pauseDuration": 5,
+      "soundAtStart": true,
+      "soundAtEnd": true,
+      "pauseAfter": true
+    },
+    {
+      "name": "Stage 4: 10m\n6 Schuss in 8 Sekunden",
+      "prepTime": 3,
+      "duration": 8,
+      "repetitions": 1,
+      "pauseDuration": 0,
+      "soundAtStart": true,
+      "soundAtEnd": true,
+      "pauseAfter": false
+    }
+  ]
+}

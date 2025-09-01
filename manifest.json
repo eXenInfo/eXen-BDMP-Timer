@@ -1,0 +1,21 @@
+{
+    "name": "eXen-BDMP-Timer",
+    "short_name": "eXenTimer",
+    "description": "Ein anpassbarer Timer für dynamische Schießdisziplinen.",
+    "start_url": "./index.html",
+    "display": "standalone",
+    "background_color": "#111827",
+    "theme_color": "#1f2937",
+    "icons": [
+        {
+            "src": "icons/icon-192.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "icons/icon-512.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        }
+    ]
+}
