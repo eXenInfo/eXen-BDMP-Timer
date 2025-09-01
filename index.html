@@ -68,6 +68,17 @@
                 </div>
 
                 <div class="mb-4 pb-4 border-b border-gray-700">
+    <h2 class="text-xl font-bold mb-3 text-gray-200">Audio-Einstellungen</h2>
+    <div class="space-y-3">
+        <div>
+            <label for="volume-slider" class="block mb-2 text-sm font-medium text-gray-300">Signalton-Lautstärke: <span id="volume-display">100</span>%</label>
+            <input id="volume-slider" type="range" min="0" max="100" value="100" class="w-full h-2 bg-gray-600 rounded-lg appearance-none cursor-pointer">
+        </div>
+        <button id="test-tone-btn" class="w-full bg-gray-600 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded-lg shadow-md">Test-Ton</button>
+    </div>
+</div>
+
+                <div class="mb-4 pb-4 border-b border-gray-700">
                     <h2 class="text-xl font-bold mb-3 text-gray-200">Sammlung Teilen / Sichern</h2>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         <button id="export-all-btn" class="bg-purple-600 hover:bg-purple-500 text-white font-bold py-2 px-4 rounded-lg shadow-md">Sammlung kopieren</button>

@@ -54,6 +54,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const importTextArea = document.getElementById('import-text-area');
     const processImportBtn = document.getElementById('process-import-btn');
     const cancelImportBtn = document.getElementById('cancel-import-btn');
+    const volumeSlider = document.getElementById('volume-slider');
+    const volumeDisplay = document.getElementById('volume-display');
+    const testToneBtn = document.getElementById('test-tone-btn');
 
     // --- App State ---
     let disciplines = {};
@@ -72,6 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let eppGesamtzeit = 330;
     let istEppAktiv = false;
     let isEditingEpp = false;
+    let signalVolume = 0; // in Dezibel, 0 ist Maximum
 
     const eppDiscipline = {
         name: "Europäischer Präzisions Parcours (EPP)",
@@ -122,18 +126,19 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.removeEventListener('touchend', oneTimeAudioInit);
     }
     const playSound = (dauerInSekunden = 0.5) => {
-        if (!audioInitialized) return;
-        try {
-            const soundSynth = new Tone.Synth({
-                oscillator: { type: "square", count: 16, volume: -0.1 },
-                envelope: { attack: 0.002, decay: 0.025, sustain: 1, release: 0.01 }
-            }).toDestination();
-            soundSynth.triggerAttackRelease("A5", dauerInSekunden);
-            setTimeout(() => { if (soundSynth) soundSynth.dispose(); }, dauerInSekunden * 1000 + 200);
-        } catch (e) {
-            console.error("Failed to play sound:", e);
-        }
-    };
+    if (!audioInitialized) return;
+    try {
+        const soundSynth = new Tone.Synth({
+            volume: signalVolume, // HIER wird die Lautstärke gesetzt
+            oscillator: { type: "square", count: 16 },
+            envelope: { attack: 0.002, decay: 0.025, sustain: 1, release: 0.01 }
+        }).toDestination();
+        soundSynth.triggerAttackRelease("A5", dauerInSekunden);
+        setTimeout(() => { if (soundSynth) soundSynth.dispose(); }, dauerInSekunden * 1000 + 200);
+    } catch (e) {
+        console.error("Failed to play sound:", e);
+    }
+};
 
     // --- Core Timer Logic (Standard Disziplinen) ---
     const tick = () => {
@@ -769,9 +774,56 @@ document.addEventListener('DOMContentLoaded', () => {
     processImportBtn.addEventListener('click', processImportFromText);
     exportAllBtn.addEventListener('click', handleExportAll);
     adminExportSingleBtn.addEventListener('click', handleExportSingle);
+// --- KORREKTUR: Die Funktion muss hier definiert sein ---
+function copyToClipboard(text, successMessage) {
+    navigator.clipboard.writeText(text).then(() => {
+        alert(successMessage);
+    }).catch(err => {
+        console.error('Fehler beim Kopieren: ', err);
+        alert('Kopieren fehlgeschlagen.');
+    });
+}
 
+// --- Audio Volume Control Logic ---
+function updateVolume(value) {
+    const percentage = parseInt(value, 10);
+    volumeDisplay.textContent = percentage;
+
+    // Umrechnung von Prozent (0-100) in Dezibel (ca. -40 bis 0)
+    if (percentage === 0) {
+        signalVolume = -Infinity; // Stumm
+    } else {
+        // Eine nicht-lineare Skala fühlt sich natürlicher an
+        signalVolume = Tone.gainToDb(percentage / 100);
+    }
+    localStorage.setItem('bdmpTimerVolume', percentage);
+}
+
+function loadVolumeSetting() {
+    const savedVolume = localStorage.getItem('bdmpTimerVolume');
+    if (savedVolume !== null) {
+        volumeSlider.value = savedVolume;
+        updateVolume(savedVolume);
+    } else {
+        updateVolume(100); // Standardwert
+    }
+}
+
+// Event Listeners für die neuen Elemente
+if (volumeSlider) {
+    volumeSlider.addEventListener('input', (e) => {
+        updateVolume(e.target.value);
+    });
+}
+if (testToneBtn) {
+    testToneBtn.addEventListener('click', () => {
+        initAudio();
+        playSound();
+    });
+}
     // --- Initial Load ---
     loadDisciplinesFromStorage();
+    loadVolumeSetting();
     if (Object.keys(disciplines).length > 0) {
         loadDisciplineForEditor(adminDisciplineSelect.value);
     } else {
