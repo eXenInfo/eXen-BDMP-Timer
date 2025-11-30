@@ -389,7 +389,7 @@
     {
       "name": "90 Sekunden",
       "prepTime": 0,
-      "duration": 9,
+      "duration": 90,
       "repetitions": 1,
       "pauseDuration": 0,
       "soundAtStart": false,
