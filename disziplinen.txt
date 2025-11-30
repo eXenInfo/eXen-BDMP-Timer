@@ -97,7 +97,7 @@
   ],
   "BDMP 1020": [
     {
-      "name": "Match 1: 7 Meter\n12 Schuss stehend frei.\nWaffen laden und Holstern.\nIst jemand nicht fertig? - ACHTUNG!",
+      "name": "Match 1: 7 Meter\n2x6 Schuss 20 Sek. stehend frei.\nWaffen laden und Holstern.\nIst jemand nicht fertig? - ACHTUNG!",
       "prepTime": 3,
       "duration": 20,
       "repetitions": 1,
@@ -107,7 +107,7 @@
       "pauseAfter": true
     },
     {
-      "name": "Match 1: 15 Meter\n12 Schuss stehend frei.\nWaffen laden und Holstern.\nIst jemand nicht fertig? - ACHTUNG!",
+      "name": "Match 1: 15 Meter\n2x6 Schuss 20 Sek. stehend frei.\nWaffen laden und Holstern.\nIst jemand nicht fertig? - ACHTUNG!",
       "prepTime": 3,
       "duration": 20,
       "repetitions": 1,
@@ -117,7 +117,7 @@
       "pauseAfter": true
     },
     {
-      "name": "Match 2: 25 Meter\n18 Schuss (6 kniend, 6 links, 6 rechts)\nWaffen laden und Holstern.\nIst jemand nicht fertig? - ACHTUNG!",
+      "name": "Match 2: 25 Meter\n18 Schuss (6 kniend, 6 links, 6 rechts) 9ß Sek. \nWaffen laden und Holstern.\nIst jemand nicht fertig? - ACHTUNG!",
       "prepTime": 3,
       "duration": 90,
       "repetitions": 1,
@@ -127,7 +127,7 @@
       "pauseAfter": true
     },
     {
-      "name": "Match 3: 25 Meter (1. Durchgang)\n12 Schuss stehend frei.\nWaffen laden und Holstern.\nIst jemand nicht fertig? - ACHTUNG!",
+      "name": "Match 3: 25 Meter (1. Durchgang)\n2x6 Schuss 35 Sek. stehend frei.\nWaffen laden und Holstern.\nIst jemand nicht fertig? - ACHTUNG!",
       "prepTime": 3,
       "duration": 35,
       "repetitions": 1,
@@ -137,7 +137,7 @@
       "pauseAfter": true
     },
     {
-      "name": "Match 3: 25 Meter (2. Durchgang)\n12 Schuss stehend frei.\nWaffen laden und Holstern.\nIst jemand nicht fertig? - ACHTUNG!",
+      "name": "Match 3: 25 Meter (2. Durchgang)\n2x6 Schuss 35 Sek. stehend frei.\nWaffen laden und Holstern.\nIst jemand nicht fertig? - ACHTUNG!",
       "prepTime": 3,
       "duration": 35,
       "repetitions": 1,
@@ -147,7 +147,7 @@
       "pauseAfter": true
     },
     {
-      "name": "Match 4: 25 Meter\n24 Schuss (6 sitzend, 6 kniend, 6 links, 6 rechts).\nWaffen laden und Holstern.\nIst jemand nicht fertig? - ACHTUNG!",
+      "name": "Match 4: 25 Meter\n24 Schuss (6 sitzend, 6 kniend, 6 links, 6 rechts) 165 Sek.\nWaffen laden und Holstern.\nIst jemand nicht fertig? - ACHTUNG!",
       "prepTime": 3,
       "duration": 165,
       "repetitions": 1,
@@ -157,7 +157,7 @@
       "pauseAfter": true
     },
     {
-      "name": "Match 5: 25 Meter (1. Durchgang)\n6 Schuss stehend frei.\nWaffen laden und Holstern.\nIst jemand nicht fertig? - ACHTUNG!",
+      "name": "Match 5: 25 Meter (1. Durchgang)\n6 Schuss 12 Sek. stehend frei.\nWaffen laden und Holstern.\nIst jemand nicht fertig? - ACHTUNG!",
       "prepTime": 3,
       "duration": 12,
       "repetitions": 1,
@@ -167,7 +167,7 @@
       "pauseAfter": true
     },
     {
-      "name": "Match 5: 25 Meter (2. Durchgang)\n6 Schuss stehend frei.\nWaffen laden und Holstern.\nIst jemand nicht fertig? - ACHTUNG!",
+      "name": "Match 5: 25 Meter (2. Durchgang)\n6 Schuss 12 Sek. stehend frei.\nWaffen laden und Holstern.\nIst jemand nicht fertig? - ACHTUNG!",
       "prepTime": 3,
       "duration": 12,
       "repetitions": 1,
