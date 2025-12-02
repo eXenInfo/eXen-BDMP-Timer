@@ -117,7 +117,7 @@
       "pauseAfter": true
     },
     {
-      "name": "Match 2: 25 Meter\n18 Schuss (6 kniend, 6 links, 6 rechts) 9ß Sek. \nWaffen laden und Holstern.\nIst jemand nicht fertig? - ACHTUNG!",
+      "name": "Match 2: 25 Meter\n18 Schuss (6 kniend, 6 links, 6 rechts) 90 Sek. \nWaffen laden und Holstern.\nIst jemand nicht fertig? - ACHTUNG!",
       "prepTime": 3,
       "duration": 90,
       "repetitions": 1,
