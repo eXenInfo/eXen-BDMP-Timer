@@ -97,7 +97,7 @@
   ],
   "BDMP 1020": [
     {
-      "name": "Match 1: 7 Meter\n2x6 Schuss 20 Sek. stehend frei.\nWaffen laden und Holstern.\nIst jemand nicht fertig? - ACHTUNG!",
+      "name": "Match 1: Wir gehen auf 10 Meter\n2 x 6 Schuss  - stehend frei - in 20 Sek. inkl. Nachladen\nDazu die Waffen laden und Holstern.\nIst jemand nicht fertig? - ACHTUNG!",
       "prepTime": 3,
       "duration": 20,
       "repetitions": 1,
@@ -107,7 +107,7 @@
       "pauseAfter": true
     },
     {
-      "name": "Match 1: 15 Meter\n2x6 Schuss 20 Sek. stehend frei.\nWaffen laden und Holstern.\nIst jemand nicht fertig? - ACHTUNG!",
+      "name": "Match 1: Wir gehen auf 15 Meter\n2 x 6 Schuss  - stehend frei - in 20 Sek. inkl. Nachladen\nDazu die Waffen laden und Holstern.\nIst jemand nicht fertig? - ACHTUNG!",
       "prepTime": 3,
       "duration": 20,
       "repetitions": 1,
@@ -117,7 +117,7 @@
       "pauseAfter": true
     },
     {
-      "name": "Match 2: 25 Meter\n18 Schuss (6 kniend, 6 links, 6 rechts) 90 Sek. \nWaffen laden und Holstern.\nIst jemand nicht fertig? - ACHTUNG!",
+      "name": "Match 2: Wir gehen auf 25 Meter\n3 x 6 Schuss in 90 Sek. inkl. Nachladen\n- 6 Schuss kniend\n- 6 Schuss stehend, linke Hand, Pfosten links\n- 6 Schuss stehend, rechte Hand, Pfosten rechts\nDazu die Waffen laden und Holstern.\nIst jemand nicht fertig? - ACHTUNG!",
       "prepTime": 3,
       "duration": 90,
       "repetitions": 1,
@@ -127,7 +127,7 @@
       "pauseAfter": true
     },
     {
-      "name": "Match 3: 25 Meter (1. Durchgang)\n2x6 Schuss 35 Sek. stehend frei.\nWaffen laden und Holstern.\nIst jemand nicht fertig? - ACHTUNG!",
+      "name": "Match 3: Wir bleiben auf 25 Meter \n1. Durchgang - Wiederholung wird angesagt\n2 x 6 Schuss - stehend frei - in 35 Sek. inkl. Nachladen\nDazu die Waffen laden und Holstern.\nIst jemand nicht fertig? - ACHTUNG!",
       "prepTime": 3,
       "duration": 35,
       "repetitions": 1,
@@ -137,7 +137,7 @@
       "pauseAfter": true
     },
     {
-      "name": "Match 3: 25 Meter (2. Durchgang)\n2x6 Schuss 35 Sek. stehend frei.\nWaffen laden und Holstern.\nIst jemand nicht fertig? - ACHTUNG!",
+      "name": "Match 3: \n2. Durchgang \n2 x 6 Schuss - stehend frei - in 35 Sek. inkl. Nachladen\nDazu die Waffen laden und Holstern.\nIst jemand nicht fertig? - ACHTUNG!",
       "prepTime": 3,
       "duration": 35,
       "repetitions": 1,
@@ -147,7 +147,7 @@
       "pauseAfter": true
     },
     {
-      "name": "Match 4: 25 Meter\n24 Schuss (6 sitzend, 6 kniend, 6 links, 6 rechts) 165 Sek.\nWaffen laden und Holstern.\nIst jemand nicht fertig? - ACHTUNG!",
+      "name": "Match 4: Wir bleiben auf 25 Meter\n4 x 6 Schuss in 165 Sek. inkl. Nachladen \n- 6 Schuss sitzend\n- 6 Schuss kniend \n- 6 Schuss stehend, linke Hand, Pfosten links\n- 6 Schuss stehend, rechte Hand, Pfosten rechts\nDazu die Waffen laden und Holstern.\nIst jemand nicht fertig? - ACHTUNG!",
       "prepTime": 3,
       "duration": 165,
       "repetitions": 1,
@@ -157,7 +157,7 @@
       "pauseAfter": true
     },
     {
-      "name": "Match 5: 25 Meter (1. Durchgang)\n6 Schuss 12 Sek. stehend frei.\nWaffen laden und Holstern.\nIst jemand nicht fertig? - ACHTUNG!",
+      "name": "Match 5: Wir bleiben auf 25 Meter\n1. Durchgang - Wiederholung wird angesagt\n1 x 6 Schuss - stehend frei - in 12 Sekunden \nDazu die Waffen laden und Holstern.\nIst jemand nicht fertig? - ACHTUNG!",
       "prepTime": 3,
       "duration": 12,
       "repetitions": 1,
@@ -167,7 +167,7 @@
       "pauseAfter": true
     },
     {
-      "name": "Match 5: 25 Meter (2. Durchgang)\n6 Schuss 12 Sek. stehend frei.\nWaffen laden und Holstern.\nIst jemand nicht fertig? - ACHTUNG!",
+      "name": "Match 5: \n2. Durchgang\n1 x 6 Schuss - stehend frei - in 12 Sekunden\nDazu die Waffen laden und Holstern.\nIst jemand nicht fertig? - ACHTUNG! \n(Match-Ende - Trefferaufnahme)",
       "prepTime": 3,
       "duration": 12,
       "repetitions": 1,
@@ -177,11 +177,11 @@
       "pauseAfter": false
     }
   ],
-  "BDMP 1500  Matches 1-5 C.8.2": [
+  "NPA Service Pistol (30M1)": [
     {
-      "name": "Match 1: 7 Meter/Yards - 20 Sekunden - nur double action\n12 Schüsse    stehend frei",
+      "name": "Stage 1: 25m\n6 Schuss in 15 Sekunden",
       "prepTime": 3,
-      "duration": 20,
+      "duration": 15,
       "repetitions": 1,
       "pauseDuration": 0,
       "soundAtStart": true,
@@ -189,9 +189,9 @@
       "pauseAfter": true
     },
     {
-      "name": "Match 1: 15 Meter/Yards - 20 Sekunden - nur double action\n12 Schüsse    stehend frei",
+      "name": "Stage 2: 20m\n6 Schuss in 10 Sekunden",
       "prepTime": 3,
-      "duration": 20,
+      "duration": 10,
       "repetitions": 1,
       "pauseDuration": 0,
       "soundAtStart": true,
@@ -199,74 +199,24 @@
       "pauseAfter": true
     },
     {
-      "name": "Match 2: 25 Meter/Yards - 90 Sekunden - nur double action \n6 Schüsse    kniend frei\n6 Schüsse    stehend, linke Hand, Pfosten links\n6 Schüsse    stehend, rechte Hand, Pfosten rechts",
+      "name": "Stage 3: 15m\n3x 2 Schuss in 3 Sekunden",
       "prepTime": 3,
-      "duration": 90,
-      "repetitions": 1,
-      "pauseDuration": 0,
+      "duration": 3,
+      "repetitions": 3,
+      "pauseDuration": 5,
       "soundAtStart": true,
       "soundAtEnd": true,
       "pauseAfter": true
     },
     {
-      "name": "Match 3:  50 Meter/Yards - 165 Sekunden - auch single action erlaubt\n6 Schüsse    sitzend\n6 Schüsse    liegend\n6 Schüsse    stehend, linke Hand, Pfosten links\n6 Schüsse    stehend, rechte Hand, Pfosten rechts",
+      "name": "Stage 4: 10m\n6 Schuss in 6 Sekunden",
       "prepTime": 3,
-      "duration": 165,
+      "duration": 6,
       "repetitions": 1,
       "pauseDuration": 0,
       "soundAtStart": true,
       "soundAtEnd": true,
-      "pauseAfter": true
-    },
-    {
-      "name": "Match 4: 25 Meter/Yards - 35 Sekunden - nur double action\n12 Schüsse    stehend frei",
-      "prepTime": 3,
-      "duration": 35,
-      "repetitions": 1,
-      "pauseDuration": 0,
-      "soundAtStart": true,
-      "soundAtEnd": true,
-      "pauseAfter": true
-    },
-    {
-      "name": "Wiederholung\nMatch 4: 25 Meter/Yards - 35 Sekunden - nur double action\n12 Schüsse    stehend frei",
-      "prepTime": 3,
-      "duration": 35,
-      "repetitions": 1,
-      "pauseDuration": 0,
-      "soundAtStart": true,
-      "soundAtEnd": true,
-      "pauseAfter": true
-    },
-    {
-      "name": "Match 5 - Station 1: \n7 Meter/Yards - 20 Sekunden - nur double action \n12 Schüsse    stehend frei",
-      "prepTime": 3,
-      "duration": 20,
-      "repetitions": 1,
-      "pauseDuration": 0,
-      "soundAtStart": true,
-      "soundAtEnd": true,
-      "pauseAfter": true
-    },
-    {
-      "name": "Match 5 - Station 2:\n25 Meter/Yards - 90 Sekunden - nur double action\n6 Schüsse    kniend frei\n6 Schüsse    linke Hand, Pfosten links\n6 Schüsse    rechte Hand, Pfosten rechts",
-      "prepTime": 3,
-      "duration": 90,
-      "repetitions": 1,
-      "pauseDuration": 0,
-      "soundAtStart": true,
-      "soundAtEnd": true,
-      "pauseAfter": true
-    },
-    {
-      "name": "Match 5 - Station 3:\n50 Meter/Yards - 165 Sekunden - auch single action erlaubt\n6 Schüsse sitzend\n6 Schüsse liegend\n6 Schüsse stehend, linke Hand, Pfosten links\n6 Schüsse stehend, rechte Hand, Pfosten rechts",
-      "prepTime": 3,
-      "duration": 165,
-      "repetitions": 1,
-      "pauseDuration": 0,
-      "soundAtStart": true,
-      "soundAtEnd": true,
-      "pauseAfter": true
+      "pauseAfter": false
     }
   ],
   "NPA Service Pistole (A-B-OS)": [
@@ -449,7 +399,7 @@
       "pauseAfter": false
     }
   ],
-  "Police Pistol 1 (30M1 / SpCb)": [
+  "Police Pistol 1 (30M1 - SpCb)": [
     {
       "name": "Stage 1: 25m\n12 Schuss in 2 Minuten",
       "prepTime": 5,
@@ -491,7 +441,7 @@
       "pauseAfter": false
     }
   ],
-  "NPA Service Pistol (30M1 / SpCb / LAR)": [
+  "NPA Service Pistol (SpCb)": [
     {
       "name": "Stage 1: 25m\n6 Schuss in 15 Sekunden",
       "prepTime": 3,
@@ -531,6 +481,140 @@
       "soundAtStart": true,
       "soundAtEnd": true,
       "pauseAfter": false
+    }
+  ],
+  "NPA Service Pistol (LAR)": [
+    {
+      "name": "Stage 1: 25m\n6 Schuss in 15 Sekunden",
+      "prepTime": 3,
+      "duration": 15,
+      "repetitions": 1,
+      "pauseDuration": 0,
+      "soundAtStart": true,
+      "soundAtEnd": true,
+      "pauseAfter": true
+    },
+    {
+      "name": "Stage 2: 20m\n6 Schuss in 10 Sekunden",
+      "prepTime": 3,
+      "duration": 10,
+      "repetitions": 1,
+      "pauseDuration": 0,
+      "soundAtStart": true,
+      "soundAtEnd": true,
+      "pauseAfter": true
+    },
+    {
+      "name": "Stage 3: 15m\n3x 2 Schuss in 3 Sekunden",
+      "prepTime": 3,
+      "duration": 3,
+      "repetitions": 3,
+      "pauseDuration": 5,
+      "soundAtStart": true,
+      "soundAtEnd": true,
+      "pauseAfter": true
+    },
+    {
+      "name": "Stage 4: 10m\n6 Schuss in 8 Sekunden",
+      "prepTime": 3,
+      "duration": 8,
+      "repetitions": 1,
+      "pauseDuration": 0,
+      "soundAtStart": true,
+      "soundAtEnd": true,
+      "pauseAfter": false
+    }
+  ],
+  "BDMP 1500 Matches 1-5 C.8.2": [
+    {
+      "name": "Match 1: 7 Meter/Yards - 20 Sekunden - nur double action\n12 Schüsse stehend frei",
+      "prepTime": 3,
+      "duration": 20,
+      "repetitions": 1,
+      "pauseDuration": 0,
+      "soundAtStart": true,
+      "soundAtEnd": true,
+      "pauseAfter": true
+    },
+    {
+      "name": "Match 1: 15 Meter/Yards - 20 Sekunden - nur double action\n12 Schüsse stehend frei",
+      "prepTime": 3,
+      "duration": 20,
+      "repetitions": 1,
+      "pauseDuration": 0,
+      "soundAtStart": true,
+      "soundAtEnd": true,
+      "pauseAfter": true
+    },
+    {
+      "name": "Match 2: 25 Meter/Yards - 90 Sekunden - nur double action \n6 Schüsse kniend frei\n6 Schüsse stehend, linke Hand, Pfosten links\n6 Schüsse stehend, rechte Hand, Pfosten rechts",
+      "prepTime": 3,
+      "duration": 90,
+      "repetitions": 1,
+      "pauseDuration": 0,
+      "soundAtStart": true,
+      "soundAtEnd": true,
+      "pauseAfter": true
+    },
+    {
+      "name": "Match 3: 50 Meter/Yards - 165 Sekunden - auch single action erlaubt\n6 Schüsse sitzend\n6 Schüsse liegend\n6 Schüsse stehend, linke Hand, Pfosten links\n6 Schüsse stehend, rechte Hand, Pfosten rechts",
+      "prepTime": 3,
+      "duration": 165,
+      "repetitions": 1,
+      "pauseDuration": 0,
+      "soundAtStart": true,
+      "soundAtEnd": true,
+      "pauseAfter": true
+    },
+    {
+      "name": "Match 4: 25 Meter/Yards - 35 Sekunden - nur double action\n12 Schüsse stehend frei",
+      "prepTime": 3,
+      "duration": 35,
+      "repetitions": 1,
+      "pauseDuration": 0,
+      "soundAtStart": true,
+      "soundAtEnd": true,
+      "pauseAfter": true
+    },
+    {
+      "name": "Wiederholung\nMatch 4: 25 Meter/Yards - 35 Sekunden - nur double action\n12 Schüsse stehend frei",
+      "prepTime": 3,
+      "duration": 35,
+      "repetitions": 1,
+      "pauseDuration": 0,
+      "soundAtStart": true,
+      "soundAtEnd": true,
+      "pauseAfter": true
+    },
+    {
+      "name": "Match 5 - Station 1: \n7 Meter/Yards - 20 Sekunden - nur double action \n12 Schüsse stehend frei",
+      "prepTime": 3,
+      "duration": 20,
+      "repetitions": 1,
+      "pauseDuration": 0,
+      "soundAtStart": true,
+      "soundAtEnd": true,
+      "pauseAfter": true
+    },
+    {
+      "name": "Match 5 - Station 2:\n25 Meter/Yards - 90 Sekunden - nur double action\n6 Schüsse kniend frei\n6 Schüsse linke Hand, Pfosten links\n6 Schüsse rechte Hand, Pfosten rechts",
+      "prepTime": 3,
+      "duration": 90,
+      "repetitions": 1,
+      "pauseDuration": 0,
+      "soundAtStart": true,
+      "soundAtEnd": true,
+      "pauseAfter": true
+    },
+    {
+      "name": "Match 5 - Station 3:\n50 Meter/Yards - 165 Sekunden - auch single action erlaubt\n6 Schüsse sitzend\n6 Schüsse liegend\n6 Schüsse stehend, linke Hand, Pfosten links\n6 Schüsse stehend, rechte Hand, Pfosten rechts",
+      "prepTime": 3,
+      "duration": 165,
+      "repetitions": 1,
+      "pauseDuration": 0,
+      "soundAtStart": true,
+      "soundAtEnd": true,
+      "pauseAfter": true
     }
   ]
 }
